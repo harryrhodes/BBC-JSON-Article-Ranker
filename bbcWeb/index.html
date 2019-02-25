@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
+    <title>BBC Article Ranking System</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">BBC Article Rating System</a>
+    </nav>
+    <div class="jumbotron">
+      <h1 class="display-4" id="jumboTitle"></h1>
+      <hr class="my-4">
+      <p id="articleNumber"></p>
+        <button type="button" class="btn btn-primary" id="previousArticle">Previous Article</button>
+        <button type="button" class="btn btn-primary" id="nextArticle">Next Article</button>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <article id="content">
+                  
+                </article>
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Rank Articles</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Please Rank The Articles (1-5*)</p>
+              <form id="rateArticles" method=POST action=formHandle.php>
+              <p>Article 1</p>
+              <select class="form-control form-control-sm" name="article1Rate">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+              </select>
+              <p>Article 2</p>
+              <select class="form-control form-control-sm" name="article2Rate">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+              </select>
+              <p>Article 3</p>
+              <select class="form-control form-control-sm" name="article3Rate">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+              </select>
+              <p>Article 4</p>
+              <select class="form-control form-control-sm" name="article4Rate">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+              </select>
+              <p>Article 5</p>
+              <select class="form-control form-control-sm" name="article5Rate">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+              </select>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" id="submitForm" value="rate" class="btn btn-primary">Submit Rating</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </form>
+        </div>
+      </div>
+<footer class="footer">
+    <div class="container text-center">Harry Rhodes - 
+      <a href="https://github.com/hjr98">Article Ranking System</a>
+    </div>
+  </footer>
+      <script>
+        $('#nextArticle').click(function(){
+          nextArticle();
+        })
+        $('#previousArticle').click(function(){
+          previousArticle();
+        })
+      </script>
+  </body>
+</html>

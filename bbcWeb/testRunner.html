@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Testing with Jasmine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.8.0/jasmine.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.8.0/jasmine.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.8.0/jasmine-html.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.8.0/boot.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+    <script>
+        describe('Article Testing', function(){
+            
+            it("Should Connect And Recieve A Sucessful Response", function(){
+                spyOn($, "ajax").and.callFake(function(request){
+                request.success('Connection Made And Sucessful Response');
+    
+            })
+            var checkInfo = jasmine.createSpy(),
+            displayErr = jasmine.createSpy();
+    
+            $.ajax({
+                url:'https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-1.json',
+                success: checkInfo,
+                error: displayErr
+            });
+            expect(checkInfo).toHaveBeenCalled();
+            expect(displayErr).not.toHaveBeenCalled();
+            });
+            it('Should Shuffle The Article URLs Array', function(){
+                var input = [1,2,3,4,5];
+                var result = shuffle(input);
+                expect(result).toBe(input);
+            });
+        });
+    </script>
+</body>
+</html>
